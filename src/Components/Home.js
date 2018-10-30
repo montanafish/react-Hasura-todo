@@ -12,7 +12,7 @@ class Home extends Component {
     client = new ApolloClient({
       uri: 'https://hamlet-staging.herokuapp.com/v1alpha1/graphql',
       headers: {
-        Authorization: `Bearer ${ACCESS_TOKEN}`,
+        'X-Hasura-Access-Key': ACCESS_TOKEN,
       },
     })
   }

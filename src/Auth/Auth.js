@@ -18,7 +18,7 @@ export default class Auth {
     localStorage.setItem('access_token', '3ktV0c%@htCZ*X3')
     //localStorage.setItem('id_token', authResult.idToken)
     localStorage.setItem('expires_at', expiresAt)
-    //localStorage.setItem('sub', authResult.idTokenPayload.sub)
+    localStorage.setItem('sub', 'This User')
     // navigate to the home route
     history.replace('/manage')
   }
