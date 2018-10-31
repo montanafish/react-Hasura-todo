@@ -67,9 +67,9 @@ class App extends Component {
                   <Button
                     bsStyle="success"
                     className="btn-margin"
-                    onClick={this.goTo.bind(this, "alltodos")}
+                    onClick={this.goTo.bind(this, "completed")}
                   >
-                    All Todos
+                    Completed
                   </Button>
                 )}
               </NavItem>
