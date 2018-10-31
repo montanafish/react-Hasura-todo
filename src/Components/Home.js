@@ -1,27 +1,27 @@
-import React, { Component } from 'react'
-import ApolloClient from 'apollo-boost'
-import { ApolloProvider } from 'react-apollo'
-import GetTodos from './GetTodos'
+import React, { Component } from "react";
+import ApolloClient from "apollo-boost";
+import { ApolloProvider } from "react-apollo";
+import GetTodos from "./GetTodos";
 
-export var client
+export var client;
 
 class Home extends Component {
   constructor(props) {
-    super(props)
-    const ACCESS_TOKEN = '3ktV0c%@htCZ*X3'
+    super(props);
+    const ACCESS_TOKEN = "3ktV0c%@htCZ*X3";
     client = new ApolloClient({
-      uri: 'https://hamlet-staging.herokuapp.com/v1alpha1/graphql',
+      uri: "https://hamlet-staging.herokuapp.com/v1alpha1/graphql",
       headers: {
-        'X-Hasura-Access-Key': ACCESS_TOKEN,
-      },
-    })
+        "X-Hasura-Access-Key": ACCESS_TOKEN
+      }
+    });
   }
 
   login() {
-    this.props.auth.login()
+    this.props.auth.login();
   }
   render() {
-    const { isAuthenticated } = this.props.auth
+    const { isAuthenticated } = this.props.auth;
     return (
       <div className="container">
         {isAuthenticated() && (
@@ -30,8 +30,8 @@ class Home extends Component {
           </ApolloProvider>
         )}
       </div>
-    )
+    );
   }
 }
 
-export default Home
+export default Home;
