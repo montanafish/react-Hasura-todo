@@ -1,4 +1,4 @@
-import gql from "graphql-tag";
+import gql from 'graphql-tag'
 
 export const getAllTodos = gql`
   {
@@ -9,7 +9,7 @@ export const getAllTodos = gql`
       todo_user
     }
   }
-`;
+`
 
 export const getIncompleteTodos = gql`
   {
@@ -21,7 +21,7 @@ export const getIncompleteTodos = gql`
       todo_category
     }
   }
-`;
+`
 
 export const getCompleteTodos = gql`
   {
@@ -33,48 +33,34 @@ export const getCompleteTodos = gql`
       todo_category
     }
   }
-`;
+`
 
 export const addTodo = gql`
   mutation($todo_text: String!, $todo_user: String!, $todo_category: String!) {
-    insert_todos(
-      objects: [
-        {
-          todo_text: $todo_text
-          todo_user: $todo_user
-          todo_category: $todo_category
-        }
-      ]
-    ) {
+    insert_todos(objects: [{ todo_text: $todo_text, todo_user: $todo_user, todo_category: $todo_category }]) {
       affected_rows
     }
   }
-`;
+`
 
 export const modifyTodo = gql`
-  mutation($todo_text: String!, $todo_user: String!, $todo_category: String!) {
+  mutation($todo_id: Int!, $todo_text: String!, $todo_category: String!) {
     update_todos(
-        where: { todo_id: { _eq: $todo_id } }
-        _set: { todo_text: $todo_text,
-            todo_category: $todo_category}
-        }
-      ]
+      where: { todo_id: { _eq: $todo_id } }
+      _set: { todo_text: $todo_text, todo_category: $todo_category }
     ) {
       affected_rows
     }
   }
-`;
+`
 
 export const markTodo = gql`
   mutation($todo_id: Int!) {
-    update_todos(
-      where: { todo_id: { _eq: $todo_id } }
-      _set: { todo_mark: true }
-    ) {
+    update_todos(where: { todo_id: { _eq: $todo_id } }, _set: { todo_mark: true }) {
       affected_rows
     }
   }
-`;
+`
 
 export const deleteTodo = gql`
   mutation($todo_id: Int!) {
@@ -82,4 +68,4 @@ export const deleteTodo = gql`
       affected_rows
     }
   }
-`;
+`
