@@ -74,7 +74,12 @@ class GetTodos extends Component {
                             <MarkTodo todo_id={todo.todo_id} />
                             <DeleteTodo todo_id={todo.todo_id} />
                             {this.state.mode === 'view' && (
-                              <Button onClick={() => this.onEditClick(todo)}>
+                              <Button
+                                onClick={e => {
+                                  e.preventDefault()
+                                  this.onEditClick(todo)
+                                }}
+                              >
                                 <FontAwesomeIcon icon={faEdit} style={{ color: 'blue' }} />
                               </Button>
                             )}
@@ -83,7 +88,12 @@ class GetTodos extends Component {
                                 <span>
                                   <Mutation mutation={modifyTodo}>
                                     {(update_todos, { data }) => (
-                                      <Button onClick={() => this.onSaveClick(update_todos)}>
+                                      <Button
+                                        onClick={e => {
+                                          e.preventDefault()
+                                          this.onSaveClick(update_todos)
+                                        }}
+                                      >
                                         <FontAwesomeIcon icon={faSave} />
                                       </Button>
                                     )}
