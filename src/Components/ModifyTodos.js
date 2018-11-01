@@ -12,7 +12,8 @@ class ModifyTodos extends Component {
     this.state = {
       todo_text: "",
       todo_user: "",
-      todo_category: ""
+      todo_category: "",
+      todo_sort: ""
     };
   }
 

@@ -17,7 +17,8 @@ class AddTodos extends Component {
     this.state = {
       todo_text: "",
       todo_user: "",
-      todo_category: ""
+      todo_category: "",
+      todo_sort: ""
     };
   }
 
@@ -59,6 +60,12 @@ class AddTodos extends Component {
                   onChange={e =>
                     this.setState({ todo_category: e.target.value })
                   }
+                />
+                <FormControl
+                  type="number"
+                  value={this.state.todo_sort}
+                  placeholder="Create a todo sort."
+                  onChange={e => this.setState({ todo_sort: e.target.value })}
                 />
                 <InputGroup.Button>
                   <Button type="submit">
